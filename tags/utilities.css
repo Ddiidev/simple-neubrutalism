@@ -1,0 +1,67 @@
+[nbtl-border] {
+	background-color: var(--background-color);
+	border: var(--border-size-default) solid var(--border-color);
+	box-shadow: var(--box-shadow-size-default) var(--box-shadow-size-default) 0 var(--border-color);
+}
+
+[no-border] {
+  border: var(--border-size-none) !important;
+  box-shadow: var(--box-shadow-none) !important;
+}
+
+[no-border]:hover {
+  transform: none !important;
+  box-shadow: var(--box-shadow-none) !important;
+}
+
+[dots] {
+  border-style: dotted !important;
+}
+
+[dashed] {
+  border: var(--border-size-default) dashed var(--border-color) !important;
+}
+
+[rounded-square] {
+  border-radius: 5px;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+[no-rounded] {
+  border-radius: 0;
+}
+
+.vr {
+  border-left: 3px solid var(--border-color);
+  height: 100%;
+}
+
+[role="group"] {
+  display: flex;
+  width: 100%;
+  border-radius: var(--default-rounded-square);
+  background-color: #000;
+}
+
+[role="group"] input {
+  flex: 1;
+  border-right: 3px solid var(--border-color) !important;
+}
+
+[role="group"] button {
+  z-index: 99999;
+  border-left: 3px solid var(--border-color) !important;
+}
+
+[role="group"]:focus-within * {
+  outline: none;
+}
+
+gridflex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

@@ -1,0 +1,33 @@
+.loading-dots {
+  font-weight: bold;
+}
+
+.loading-dots::after {
+  content: ".";
+  animation: dots 1s infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: ".";
+  }
+  33% {
+    content: "..";
+  }
+  66% {
+    content: "...";
+  }
+  100% {
+    content: ".";
+  }
+}
+
+.loading-dots.fade-out {
+  opacity: 0;
+}
+
+.loading-dots.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+}

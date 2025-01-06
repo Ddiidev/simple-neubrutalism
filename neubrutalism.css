@@ -1,0 +1,60 @@
+@import url('./tags/link.css');
+@import url('./tags/tabs.css');
+@import url('./tags/input.css');
+@import url('./tags/table.css');
+@import url('./tags/label.css');
+@import url('./tags/image.css');
+@import url('./tags/modal.css');
+@import url('./tags/button.css');
+@import url('./tags/article.css');
+@import url('./tags/loading.css');
+@import url('./tags/textarea.css');
+@import url('./tags/dropdown.css');
+@import url('./tags/scrollbar.css');
+@import url('./tags/utilities.css');
+@import url('./tags/essentials.css');
+
+:root {
+  --primary-color: #FFD93D;
+  --border-color: #4C3D3D;
+  --background-color: #FFF8E3;
+  --background-color-textarea: white;
+  --font-color: #4C3D3D;
+  --secondary-color: #FFB200;
+  --none-color: #E6DDC4;
+  --font-family: "Space Mono", monospace;
+  --modal-neubrutalis: rgba(76, 61, 61, 0.5);
+  --default-rounded-square: 5px;
+  --border-size-default: 3px;
+  --box-shadow-size-default: 6px;
+}
+
+.dark-mode {
+  --primary-color: #FFB200;
+  --border-color: #4C3D3D;
+  --background-color: #2C2317;
+  --background-color-textarea: #4C3D3D;
+  --font-color: #FFF8E3;
+  --secondary-color: #FFD93D;
+  --none-color: #3D3522;
+  --modal-neubrutalis: rgba(255, 248, 227, 0.5);
+}
+
+* {
+  border-radius: var(--default-rounded-square);
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+:focus {
+  outline: unset;
+  outline-style: unset;
+  outline-offset: unset;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  transition: background-color 0.3s, color 0.3s;
+}

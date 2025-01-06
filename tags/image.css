@@ -1,0 +1,4 @@
+img[nbtl] {
+  border: var(--border-size-default) solid var(--border-color);
+  box-shadow: var(--box-shadow-size-default) var(--box-shadow-size-default) 0 var(--border-color);
+}

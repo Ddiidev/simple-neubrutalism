@@ -1,9 +1,10 @@
+/* Label related styles */
 label {
   display: inline-block;
   padding: 8px 16px;
   font-weight: bold;
   color: var(--font-color);
-  border: var(--border-size-default) solid var(--border-color);
-  box-shadow: var(--box-shadow-size-default) var(--box-shadow-size-default) 0 var(--border-color);
+  border: 3px solid var(--border-color);
+  box-shadow: 3px 3px 0 var(--border-color);
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }

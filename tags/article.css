@@ -1,9 +1,10 @@
+/* Article related styles */
 article {
   position: relative;
   background-color: var(--background-color);
-  border: var(--border-size-default) solid var(--border-color);
+  border: 3px solid var(--border-color);
   padding: 20px;
-  box-shadow: var(--box-shadow-size-default) var(--box-shadow-size-default) 0 var(--border-color);
+  box-shadow: 6px 6px 0 var(--border-color);
 }
 
 article>header {
@@ -12,7 +13,7 @@ article>header {
   background-color: var(--background-color);
   z-index: 10;
   border: none;
-  border-bottom: var(--border-size-default) solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
   padding-left: 20px;
   padding-right: 20px;
   margin-left: -20px;
@@ -25,7 +26,7 @@ article>footer {
   background-color: var(--background-color);
   z-index: 10;
   border: none;
-  border-top: var(--border-size-default) solid var(--border-color);
+  border-top: 3px solid var(--border-color);
   padding-left: 20px;
   padding-right: 20px;
   margin-left: -20px;

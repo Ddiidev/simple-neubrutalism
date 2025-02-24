@@ -1,3 +1,4 @@
+/* Scrollbar related styles */
 ::-webkit-scrollbar {
   cursor: default;
   width: 12px;
@@ -12,7 +13,7 @@
   cursor: default;
   background-color: var(--primary-color);
   border-radius: 4px;
-  border: var(--border-size-default) solid var(--border-color);
+  border: 3px solid var(--border-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {

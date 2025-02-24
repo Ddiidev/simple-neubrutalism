@@ -1,3 +1,4 @@
+/* Button related styles */
 button {
   width: 25%;
   padding: 10px;
@@ -5,8 +6,8 @@ button {
   font-weight: bold;
   color: var(--font-color);
   background-color: var(--primary-color);
-  border: var(--border-size-default) solid var(--border-color);
-  box-shadow: var(--box-shadow-size-default) var(--box-shadow-size-default) 0 var(--border-color);
+  border: 3px solid var(--border-color);
+  box-shadow: 3px 3px 0 var(--border-color);
   transition: transform 0.1s ease;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
@@ -17,7 +18,7 @@ button:hover {
 
 button:active {
   transform: translate(2px, 2px);
-  box-shadow: calc(var(--box-shadow-size-default) / 6) calc(var(--box-shadow-size-default) / 6) 0 var(--border-color);
+  box-shadow: 1px 1px 0 var(--border-color);
 }
 
 .nbtl-button {
@@ -27,19 +28,19 @@ button:active {
   font-weight: bold;
   color: var(--font-color);
   background-color: var(--primary-color);
-  border: var(--border-size-default) solid var(--border-color);
-  box-shadow: var(--box-shadow-size-default) var(--box-shadow-size-default) 0 var(--border-color);
+  border: 3px solid var(--border-color);
+  box-shadow: 3px 3px 0 var(--border-color);
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .nbtl-button:hover {
   transform: translate(-1px, -1px);
-  box-shadow: calc(var(--box-shadow-size-default) / 1.5) calc(var(--box-shadow-size-default) / 1.5) 0 var(--border-color);
+  box-shadow: 4px 4px 0 var(--border-color);
 }
 
 .nbtl-button:active {
   transform: translate(2px, 2px);
-  box-shadow: calc(var(--box-shadow-size-default) / 6) calc(var(--box-shadow-size-default) / 6) 0 var(--border-color);
+  box-shadow: 1px 1px 0 var(--border-color);
 }
 
 .clear-button {
@@ -50,5 +51,5 @@ button:active {
 
 .clear-button:hover {
   transform: translate(1px, 1px);
-  box-shadow: calc(var(--box-shadow-size-default) / -3) calc(var(--box-shadow-size-default) / -3) 0 var(--border-color);
+  box-shadow: -2px -2px 0 var(--border-color);
 }

@@ -1,8 +1,9 @@
+/* Textarea related styles */
 textarea {
   border: none;
   background-color: var(--background-color-textarea);
-  border: var(--border-size-default) solid var(--border-color);
-  box-shadow: var(--box-shadow-size-default) var(--box-shadow-size-default) 0 var(--border-color);
+  border: 3px solid var(--border-color);
+  box-shadow: 3px 3px 0 var(--border-color);
   color: var(--font-color);
   width: 100%;
 }

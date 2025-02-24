@@ -1,9 +1,11 @@
+@import url('./tags/grid.css');
 @import url('./tags/link.css');
 @import url('./tags/tabs.css');
 @import url('./tags/input.css');
 @import url('./tags/table.css');
 @import url('./tags/label.css');
 @import url('./tags/image.css');
+@import url('./tags/badge.css');
 @import url('./tags/modal.css');
 @import url('./tags/button.css');
 @import url('./tags/article.css');
@@ -25,8 +27,6 @@
   --font-family: "Space Mono", monospace;
   --modal-neubrutalis: rgba(76, 61, 61, 0.5);
   --default-rounded-square: 5px;
-  --border-size-default: 3px;
-  --box-shadow-size-default: 6px;
 }
 
 .dark-mode {

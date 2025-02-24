@@ -1,14 +1,15 @@
+/* Table related styles */
 table {
   width: 100%;
   border-collapse: collapse;
-  border: var(--border-size-default) solid var(--border-color);
-  box-shadow: var(--box-shadow-size-default) var(--box-shadow-size-default) 0 var(--border-color);
+  border: 3px solid var(--border-color);
+  box-shadow: 6px 6px 0 var(--border-color);
 }
 
 table th,
 table td {
   padding: 10px;
-  border: calc(var(--border-size-default) / 1.5) solid var(--border-color);
+  border: 2px solid var(--border-color);
   background-color: var(--background-color);
   color: var(--font-color);
 }

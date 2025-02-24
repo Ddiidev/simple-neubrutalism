@@ -1,5 +1,6 @@
+/* Link related styles */
 a {
   color: var(--secondary-color);
   text-decoration: none;
-  border-bottom: var(--border-size-default) solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
 }

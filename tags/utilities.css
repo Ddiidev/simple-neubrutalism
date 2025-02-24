@@ -1,17 +1,12 @@
-[nbtl-border] {
-	background-color: var(--background-color);
-	border: var(--border-size-default) solid var(--border-color);
-	box-shadow: var(--box-shadow-size-default) var(--box-shadow-size-default) 0 var(--border-color);
-}
-
+/* Utility classes and attributes */
 [no-border] {
-  border: var(--border-size-none) !important;
-  box-shadow: var(--box-shadow-none) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 [no-border]:hover {
   transform: none !important;
-  box-shadow: var(--box-shadow-none) !important;
+  box-shadow: none !important;
 }
 
 [dots] {
@@ -19,7 +14,7 @@
 }
 
 [dashed] {
-  border: var(--border-size-default) dashed var(--border-color) !important;
+  border: 3px dashed var(--border-color) !important;
 }
 
 [rounded-square] {

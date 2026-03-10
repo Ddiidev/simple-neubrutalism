@@ -1,0 +1,59 @@
+/* Code block component */
+.nbtl-code-block {
+  position: relative;
+  background-color: var(--background-color);
+  border: 3px solid var(--border-color);
+  box-shadow: 3px 3px 0 var(--border-color);
+  overflow: hidden;
+  border-radius: var(--default-rounded-square);
+}
+
+.nbtl-code-block pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  font-family: var(--font-family);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--font-color);
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.nbtl-code-block code {
+  font-family: var(--font-family);
+  font-size: 13px;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.nbtl-code-block .copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: auto;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--font-color);
+  background-color: var(--primary-color);
+  border: 2px solid var(--border-color);
+  box-shadow: 2px 2px 0 var(--border-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nbtl-code-block:hover .copy-btn {
+  opacity: 1;
+}
+
+.nbtl-code-block .copy-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--border-color);
+}

@@ -1,0 +1,15 @@
+/* Table related styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid var(--border-color);
+  box-shadow: 6px 6px 0 var(--border-color);
+}
+
+table th,
+table td {
+  padding: 10px;
+  border: 2px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--font-color);
+}

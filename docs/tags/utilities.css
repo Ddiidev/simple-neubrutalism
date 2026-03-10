@@ -1,0 +1,100 @@
+/* Utility classes and attributes */
+[no-border] {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[no-border]:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+[dots] {
+  border-style: dotted !important;
+}
+
+[dashed] {
+  border: 3px dashed var(--border-color) !important;
+}
+
+[rounded-square] {
+  border-radius: 5px;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+[no-rounded] {
+  border-radius: 0;
+}
+
+.vr {
+  border-left: 3px solid var(--border-color);
+  height: 100%;
+}
+
+[role="group"] {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  gap: 0;
+  background-color: transparent;
+}
+
+[role="group"] > * {
+  position: relative;
+  z-index: 0;
+  margin: 0;
+  border-radius: 0 !important;
+}
+
+[role="group"] > * + * {
+  margin-left: -3px;
+}
+
+[role="group"] > *:hover,
+[role="group"] > *:focus,
+[role="group"] > *:focus-within {
+  z-index: 1;
+}
+
+[role="group"] > :first-child {
+  border-top-left-radius: var(--default-rounded-square) !important;
+  border-bottom-left-radius: var(--default-rounded-square) !important;
+}
+
+[role="group"] > :last-child {
+  border-top-right-radius: var(--default-rounded-square) !important;
+  border-bottom-right-radius: var(--default-rounded-square) !important;
+}
+
+[role="group"] input,
+[role="group"] textarea,
+[role="group"] nb-datetime {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+[role="group"] button,
+[role="group"] .nbtl-button,
+[role="group"] input[type="submit"] {
+  width: auto;
+  min-width: 120px;
+  padding: 16px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  box-shadow: 6px 6px 0 var(--border-color);
+}
+
+[role="group"]:focus-within * {
+  outline: none;
+}
+
+gridflex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

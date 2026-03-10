@@ -1,0 +1,25 @@
+grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 16px;
+}
+
+grid>* {
+	padding: 3px;
+	display: flex;
+	flex-direction: column;
+	max-width: 100%;
+	height: auto;
+	overflow: hidden;
+	object-fit: contain;
+}
+
+gridflex {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+gridflex>* {
+	flex: 0 1 auto;
+}

@@ -1,0 +1,5 @@
+/* Image related styles */
+img[nbtl] {
+  border: 3px solid var(--border-color);
+  box-shadow: 6px 6px 0 var(--border-color);
+}

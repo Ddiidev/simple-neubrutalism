@@ -1,0 +1,13 @@
+/* Textarea related styles */
+textarea {
+  border: none;
+  background-color: var(--background-color-textarea);
+  border: 3px solid var(--border-color);
+  box-shadow: 3px 3px 0 var(--border-color);
+  color: var(--font-color);
+  width: 100%;
+}
+
+textarea[no-resize] {
+  resize: none;
+}

@@ -1,0 +1,235 @@
+/* Custom datetime component */
+nb-datetime {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+nb-datetime[open] {
+  z-index: 1200;
+}
+
+nb-datetime[disabled] {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.nb-datetime-shell {
+  position: relative;
+}
+
+.nb-datetime-control {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.nb-datetime-display {
+  width: 100%;
+  min-width: 0;
+  padding: 16px;
+  font-weight: bold;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  color: var(--font-color);
+  border: 3px solid var(--border-color);
+  box-shadow: 6px 6px 0 var(--border-color);
+  background-color: var(--background-color);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.nb-datetime-display::placeholder {
+  color: var(--font-color);
+  opacity: 0.65;
+}
+
+.nb-datetime-display:hover,
+nb-datetime[open] .nb-datetime-display {
+  transform: translate(-1px, -1px);
+}
+
+.nb-datetime-toggle {
+  width: auto !important;
+  min-width: 58px;
+  margin-left: -3px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 6px 6px 0 var(--border-color);
+}
+
+.nb-datetime-toggle::before {
+  content: "";
+  width: 16px;
+  height: 14px;
+  border: 2px solid var(--border-color);
+  background:
+    linear-gradient(var(--border-color), var(--border-color)) 0 4px / 100% 2px no-repeat,
+    linear-gradient(var(--border-color), var(--border-color)) 3px 0 / 2px 4px no-repeat,
+    linear-gradient(var(--border-color), var(--border-color)) calc(100% - 5px) 0 / 2px 4px no-repeat,
+    linear-gradient(var(--background-color), var(--background-color)) center / 100% 100% no-repeat;
+}
+
+.nb-datetime-popover {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  width: min(320px, calc(100vw - 32px));
+  padding: 16px;
+  border: 3px solid var(--border-color);
+  box-shadow: 6px 6px 0 var(--border-color);
+  background-color: var(--background-color);
+  display: none;
+  z-index: 2500;
+}
+
+nb-datetime[open] .nb-datetime-popover {
+  display: block;
+}
+
+.nb-datetime-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.nb-datetime-title {
+  flex: 1;
+  min-width: 0;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.nb-datetime-nav,
+.nb-datetime-day,
+.nb-datetime-action {
+  width: auto !important;
+  min-width: 0;
+  font-family: var(--font-family);
+}
+
+.nb-datetime-nav {
+  width: 40px !important;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 0 var(--border-color);
+}
+
+.nb-datetime-nav span {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.nb-datetime-weekdays,
+.nb-datetime-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.nb-datetime-weekdays {
+  margin-bottom: 8px;
+}
+
+.nb-datetime-weekday {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+}
+
+.nb-datetime-day {
+  width: 100% !important;
+  padding: 8px 0;
+  box-shadow: 2px 2px 0 var(--border-color);
+  background-color: var(--background-color);
+}
+
+.nb-datetime-day.is-outside {
+  opacity: 0.55;
+}
+
+.nb-datetime-day.is-today {
+  background-color: var(--none-color);
+}
+
+.nb-datetime-day.is-selected {
+  background-color: var(--primary-color);
+}
+
+.nb-datetime-day:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 2px 2px 0 var(--border-color);
+}
+
+.nb-datetime-time {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 2px dashed var(--border-color);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.nb-datetime-time select {
+  width: 100%;
+  padding: 10px 12px;
+  font-weight: bold;
+  font-family: var(--font-family);
+  color: var(--font-color);
+  border: 3px solid var(--border-color);
+  box-shadow: 3px 3px 0 var(--border-color);
+  background-color: var(--background-color);
+  cursor: pointer;
+}
+
+.nb-datetime-time-divider {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.nb-datetime-actions {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 2px dashed var(--border-color);
+  display: flex;
+  gap: 10px;
+}
+
+.nb-datetime-action {
+  flex: 1 1 0;
+  padding: 10px 14px;
+  box-shadow: 3px 3px 0 var(--border-color);
+}
+
+.nb-datetime-action[data-action="clear"] {
+  background-color: var(--none-color);
+}
+
+.nb-datetime-hidden {
+  display: none !important;
+}
+
+[role="group"] nb-datetime {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 768px) {
+  .nb-datetime-popover {
+    width: min(100%, calc(100vw - 32px));
+  }
+}

@@ -1,0 +1,28 @@
+.badge {
+	display: inline-block;
+	padding: 4px 6px;
+	background-color: var(--primary-color);
+	color: var(--font-color);
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+	border: 2.5px solid var(--border-color);
+	box-shadow: 2.5px 2.5px 0 var(--border-color);
+	transition: transform 0.1s ease;
+}
+
+.badge:hover {
+	transform: translate(-1px, -1px);
+}
+
+.badge-none {
+	background-color: var(--none-color);
+}
+
+.badge-success {
+	background-color: #2ecc71;
+}
+
+.badge-error {
+	background-color: #e74c3c;
+}

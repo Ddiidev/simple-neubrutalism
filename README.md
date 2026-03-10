@@ -15,6 +15,7 @@ O Simple Neubrutalism CSS é uma biblioteca com componentes básicos para criar 
 - 🎨 Modo claro e escuro
 - 🎯 Foco em simplicidade
 - 📦 Componentes básicos prontos para uso
+- 🗓 Componente customizado de date/datetime
 - 🛠 Fácil de customizar através de variáveis CSS
 - 🪶 Leve e sem dependências
 
@@ -31,6 +32,9 @@ O Simple Neubrutalism CSS é uma biblioteca com componentes básicos para criar 
 1. Adicione o arquivo CSS ao seu projeto:
 ```html
 <link rel="stylesheet" href="neubrutalism.css">
+
+<!-- Para modal, tabs e datetime customizado -->
+<script src="tags/datetime.js"></script>
 ```
 
 2. Use os atributos e classes em seus elementos:
@@ -40,6 +44,9 @@ O Simple Neubrutalism CSS é uma biblioteca com componentes básicos para criar 
 
 <!-- Input com estilo neubrutalism -->
 <input type="text" placeholder="Digite algo...">
+
+<!-- Datetime customizado -->
+<nb-datetime name="appointment"></nb-datetime>
 
 <!-- Elemento com borda neubrutalism -->
 <div nbtl-border>Conteúdo</div>

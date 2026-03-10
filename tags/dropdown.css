@@ -2,10 +2,16 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  z-index: 10;
+}
+
+.dropdown:hover,
+.dropdown:focus-within {
+  z-index: 1000;
 }
 
 .dropdown-button {
-  width: fit-content;
+  width: auto;
   background-color: var(--primary-color);
   color: var(--font-color);
   border: 3px solid var(--border-color);
@@ -13,6 +19,8 @@
   padding: 10px 20px;
   cursor: pointer;
   font-family: var(--font-family);
+  position: relative;
+  z-index: 2;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
@@ -27,13 +35,16 @@
 
 .dropdown-content {
   position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, -6px);
   background-color: var(--background-color);
-  min-width: 160px;
+  min-width: max(100%, 180px);
   border: 3px solid var(--border-color);
   box-shadow: 3px 3px 0 var(--border-color);
-  z-index: 1;
+  z-index: 2000;
   padding: 10px 0;
-  right: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,20 +52,26 @@
   gap: 10px;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.2s, opacity 0.2s ease;
+  pointer-events: none;
+  transition: visibility 0.2s, opacity 0.2s ease, transform 0.2s ease;
 }
 
 .dropdown-content * {
   display: block;
-  width: fit-content;
+  width: 100%;
+  padding: 0 16px;
+  text-align: center;
   font-weight: bold;
   font-family: var(--font-family);
   background-color: var(--background-color);
   transition: background-color 0.3s, transform 0.1s ease;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
   display: flex;
   visibility: visible;
   opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
 }

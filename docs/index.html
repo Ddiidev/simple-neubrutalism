@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Neubrutalism - Docs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../neubrutalism.css">
+  <link rel="stylesheet" href="docs.css">
+  <script>if(localStorage.getItem('nbtl-dark-mode')==='true')document.documentElement.classList.add('dark-mode');</script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="docs-topbar">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <button id="menu-toggle" class="docs-hamburger"><i data-lucide="menu"></i></button>
+    <span class="logo"><i data-lucide="zap"></i> Simple Neubrutalism</span>
+  </div>
+  <div class="actions">
+    <button id="dark-mode-toggle"><i data-lucide="moon"></i></button>
+    <a href="https://github.com/Ddiidev/simple-neubrutalism" target="_blank"><i data-lucide="github"></i></a>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<nav class="docs-sidebar">
+  <div class="nav-group">Start</div>
+  <a href="#getting-started" class="nav-item active"><i data-lucide="rocket"></i> Introduction</a>
+
+  <div class="nav-group">Form</div>
+  <a href="#button" class="nav-item"><i data-lucide="square"></i> Button</a>
+  <a href="#input" class="nav-item"><i data-lucide="text-cursor-input"></i> Input</a>
+  <a href="#datetime" class="nav-item"><i data-lucide="calendar"></i> Datetime</a>
+  <a href="#textarea" class="nav-item"><i data-lucide="text"></i> Textarea</a>
+  <a href="#label" class="nav-item"><i data-lucide="tag"></i> Label</a>
+
+  <div class="nav-group">Display</div>
+  <a href="#badge" class="nav-item"><i data-lucide="circle-dot"></i> Badge</a>
+  <a href="#link" class="nav-item"><i data-lucide="link"></i> Link</a>
+  <a href="#image" class="nav-item"><i data-lucide="image"></i> Image</a>
+  <a href="#table" class="nav-item"><i data-lucide="table"></i> Table</a>
+  <a href="#loading" class="nav-item"><i data-lucide="loader"></i> Loading</a>
+
+  <div class="nav-group">Layout</div>
+  <a href="#grid" class="nav-item"><i data-lucide="layout-grid"></i> Grid</a>
+  <a href="#article" class="nav-item"><i data-lucide="file-text"></i> Article</a>
+
+  <div class="nav-group">Interactive</div>
+  <a href="#dropdown" class="nav-item"><i data-lucide="chevron-down"></i> Dropdown</a>
+  <a href="#modal" class="nav-item"><i data-lucide="maximize-2"></i> Modal</a>
+  <a href="#tabs" class="nav-item"><i data-lucide="panel-top"></i> Tabs</a>
+
+  <div class="nav-group">Helpers</div>
+  <a href="#utilities" class="nav-item"><i data-lucide="wrench"></i> Utilities</a>
+  <a href="#essentials" class="nav-item"><i data-lucide="box"></i> Essentials</a>
+</nav>
+
+<!-- OVERLAY -->
+<div class="docs-overlay"></div>
+
+<!-- MAIN -->
+<main class="docs-main">
+
+  <!-- ========== GETTING STARTED ========== -->
+  <section id="getting-started" class="docs-section">
+    <h2><i data-lucide="rocket"></i> Getting Started</h2>
+    <p class="desc">A lightweight, zero-dependency CSS framework for bold neubrutalism interfaces.</p>
+
+    <div class="info-box">
+      <h3><i data-lucide="download"></i> Installation</h3>
+      <div class="code-box">
+        <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+        <pre><code class="lang-html">&lt;link rel="stylesheet" href="neubrutalism.css"&gt;
+
+&lt;!-- For modal, tabs, and custom datetime --&gt;
+&lt;script src="tags/modal.js"&gt;&lt;/script&gt;
+&lt;script src="tags/tabs.js"&gt;&lt;/script&gt;
+&lt;script src="tags/datetime.js"&gt;&lt;/script&gt;</code></pre>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:16px;">
+      <h3><i data-lucide="palette"></i> Color Palette</h3>
+      <div class="color-grid">
+        <div class="color-swatch" data-swatch-tone="light" style="background:#FFD93D;"><span>Primary</span><span class="cv">#FFD93D</span></div>
+        <div class="color-swatch" data-swatch-tone="light" style="background:#FFB200;"><span>Secondary</span><span class="cv">#FFB200</span></div>
+        <div class="color-swatch" data-swatch-tone="light" style="background:#FFF8E3;"><span>Background</span><span class="cv">#FFF8E3</span></div>
+        <div class="color-swatch" data-swatch-tone="dark" style="background:#4C3D3D;color:#FFF8E3;"><span>Border</span><span class="cv">#4C3D3D</span></div>
+        <div class="color-swatch" data-swatch-tone="light" style="background:#E6DDC4;"><span>None</span><span class="cv">#E6DDC4</span></div>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:16px;">
+      <h3><i data-lucide="settings"></i> CSS Variables</h3>
+      <table style="margin-top:8px;">
+        <thead><tr><th>Variable</th><th>Light</th><th>Dark</th></tr></thead>
+        <tbody>
+          <tr><td>--primary-color</td><td>#FFD93D</td><td>#FFB200</td></tr>
+          <tr><td>--secondary-color</td><td>#FFB200</td><td>#FFD93D</td></tr>
+          <tr><td>--background-color</td><td>#FFF8E3</td><td>#2C2317</td></tr>
+          <tr><td>--font-color</td><td>#4C3D3D</td><td>#FFF8E3</td></tr>
+          <tr><td>--border-color</td><td>#4C3D3D</td><td>#4C3D3D</td></tr>
+          <tr><td>--none-color</td><td>#E6DDC4</td><td>#3D3522</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== BUTTON ========== -->
+  <section id="button" class="docs-section">
+    <h2><i data-lucide="square"></i> Button</h2>
+    <p class="desc">Three variants: default &lt;button&gt;, enhanced .nbtl-button, and minimal .clear-button.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content">
+        <button>Default</button>
+        <div class="nbtl-button">Enhanced</div>
+        <button class="clear-button">Clear</button>
+        <button dashed>Dashed</button>
+        <button class="rounded-full">Rounded</button>
+      </div>
+    </div>
+
+    <div class="code-tabs">
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="btn-html">HTML</button>
+        <button class="tab-btn" data-tab="btn-js">JavaScript</button>
+      </div>
+      <div id="btn-html" class="tab-panel active">
+        <div class="code-box">
+          <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+          <pre><code class="lang-html">&lt;button&gt;Default Button&lt;/button&gt;
+
+&lt;div class="nbtl-button"&gt;Enhanced Button&lt;/div&gt;
+
+&lt;button class="clear-button"&gt;Clear Button&lt;/button&gt;
+
+&lt;!-- Modifiers --&gt;
+&lt;button rounded-full&gt;Rounded&lt;/button&gt;
+&lt;button dashed&gt;Dashed&lt;/button&gt;
+&lt;button dots&gt;Dotted&lt;/button&gt;
+&lt;button no-border&gt;No Border&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+      <div id="btn-js" class="tab-panel">
+        <div class="code-box">
+          <div class="code-header"><span>JS</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+          <pre><code class="lang-js">const btn = document.querySelector('button');
+btn.addEventListener('click', () => {
+  alert('Clicked!');
+});</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="pg-box" data-playground="button">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== INPUT ========== -->
+  <section id="input" class="docs-section">
+    <h2><i data-lucide="text-cursor-input"></i> Input</h2>
+    <p class="desc">Styled inputs for text, number, password, file, submit, and grouped actions.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content stack">
+        <input type="text" placeholder="Text input">
+        <input type="password" placeholder="Password input">
+        <input type="file">
+        <div role="group">
+          <input type="text" placeholder="Search...">
+          <button>Go</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;input type="text" placeholder="Text input"&gt;
+&lt;input type="password" placeholder="Password"&gt;
+&lt;input type="number" placeholder="Number"&gt;
+&lt;input type="file"&gt;
+
+&lt;!-- Input group --&gt;
+&lt;div role="group"&gt;
+  &lt;input type="text" placeholder="Search..."&gt;
+  &lt;button&gt;Go&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="pg-box" data-playground="input">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result stack"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== DATETIME ========== -->
+  <section id="datetime" class="docs-section">
+    <h2><i data-lucide="calendar"></i> Datetime</h2>
+    <p class="desc">Custom date and datetime picker with a neubrutalism popover instead of the native system UI.</p>
+
+    <div class="preview-box allow-overflow">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content stack">
+        <nb-datetime name="meeting" placeholder="Select date and time"></nb-datetime>
+        <nb-datetime mode="date" name="birthday" placeholder="Select only a date"></nb-datetime>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;!-- Requires tags/datetime.js --&gt;
+&lt;nb-datetime name="meeting"&gt;&lt;/nb-datetime&gt;
+
+&lt;!-- Date only --&gt;
+&lt;nb-datetime
+  mode="date"
+  name="birthday"
+  placeholder="Select only a date"&gt;
+&lt;/nb-datetime&gt;</code></pre>
+    </div>
+
+    <div class="pg-box allow-overflow" data-playground="datetime">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result stack"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== TEXTAREA ========== -->
+  <section id="textarea" class="docs-section">
+    <h2><i data-lucide="text"></i> Textarea</h2>
+    <p class="desc">Styled textarea with optional no-resize attribute.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content stack">
+        <textarea rows="3" placeholder="Type something..."></textarea>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;textarea rows="4" placeholder="Type..."&gt;&lt;/textarea&gt;
+
+&lt;!-- No resize --&gt;
+&lt;textarea no-resize rows="4"&gt;&lt;/textarea&gt;</code></pre>
+    </div>
+
+    <div class="pg-box" data-playground="textarea">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result stack"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== LABEL ========== -->
+  <section id="label" class="docs-section">
+    <h2><i data-lucide="tag"></i> Label</h2>
+    <p class="desc">Bold inline labels with neubrutalism borders and shadow.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content">
+        <label>Default</label>
+        <label dots>Dotted</label>
+        <label dashed>Dashed</label>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;label&gt;Default Label&lt;/label&gt;
+&lt;label dots&gt;Dotted Label&lt;/label&gt;
+&lt;label dashed&gt;Dashed Label&lt;/label&gt;</code></pre>
+    </div>
+
+    <div class="pg-box" data-playground="labelcomp">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== BADGE ========== -->
+  <section id="badge" class="docs-section">
+    <h2><i data-lucide="circle-dot"></i> Badge</h2>
+    <p class="desc">Small status indicators: default, none, success, error.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content">
+        <span class="badge">Default</span>
+        <span class="badge badge-none">None</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-error">Error</span>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;span class="badge"&gt;Default&lt;/span&gt;
+&lt;span class="badge badge-none"&gt;None&lt;/span&gt;
+&lt;span class="badge badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge badge-error"&gt;Error&lt;/span&gt;</code></pre>
+    </div>
+
+    <div class="pg-box" data-playground="badge">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== LINK ========== -->
+  <section id="link" class="docs-section">
+    <h2><i data-lucide="link"></i> Link</h2>
+    <p class="desc">Styled anchor with bold bottom border in secondary color.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content">
+        <a href="#">This is a styled link</a>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;a href="#"&gt;Styled link&lt;/a&gt;</code></pre>
+    </div>
+
+    <div class="pg-box" data-playground="link">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== IMAGE ========== -->
+  <section id="image" class="docs-section">
+    <h2><i data-lucide="image"></i> Image</h2>
+    <p class="desc">Add the <code>nbtl</code> attribute for neubrutalism borders and shadow.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content">
+        <img nbtl src="https://picsum.photos/seed/nbtl/200/150" alt="Example" width="200" height="150">
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;img nbtl src="image.jpg" alt="Description"&gt;
+
+&lt;!-- Rounded --&gt;
+&lt;img nbtl class="rounded-full" src="avatar.jpg"&gt;</code></pre>
+    </div>
+
+    <div class="pg-box" data-playground="image">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== TABLE ========== -->
+  <section id="table" class="docs-section">
+    <h2><i data-lucide="table"></i> Table</h2>
+    <p class="desc">Full-width tables with bold borders and cell styling.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content stack">
+        <table>
+          <thead><tr><th>Name</th><th>Type</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Button</td><td>CSS</td><td>Stable</td></tr>
+            <tr><td>Modal</td><td>JS</td><td>Stable</td></tr>
+            <tr><td>Tabs</td><td>JS</td><td>Stable</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Type&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Item&lt;/td&gt;&lt;td&gt;Value&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+    </div>
+
+    <div class="pg-box" data-playground="table">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result stack"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== LOADING ========== -->
+  <section id="loading" class="docs-section">
+    <h2><i data-lucide="loader"></i> Loading</h2>
+    <p class="desc">Animated dots indicator.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content">
+        <span class="loading-dots">Loading</span>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;span class="loading-dots"&gt;Loading&lt;/span&gt;
+
+&lt;!-- Fade out --&gt;
+&lt;span class="loading-dots fade-out"&gt;Done&lt;/span&gt;</code></pre>
+    </div>
+
+    <div class="pg-box" data-playground="loading">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== GRID ========== -->
+  <section id="grid" class="docs-section">
+    <h2><i data-lucide="layout-grid"></i> Grid</h2>
+    <p class="desc">CSS grid and flex layout using custom &lt;grid&gt; and &lt;gridflex&gt; elements.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview - grid</div>
+      <div class="preview-content stack">
+        <grid>
+          <div class="info-box"><strong>Item 1</strong></div>
+          <div class="info-box"><strong>Item 2</strong></div>
+          <div class="info-box"><strong>Item 3</strong></div>
+        </grid>
+      </div>
+    </div>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview - gridflex</div>
+      <div class="preview-content">
+        <gridflex>
+          <label>Flex 1</label>
+          <label>Flex 2</label>
+          <label>Flex 3</label>
+          <label>Flex 4</label>
+        </gridflex>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;!-- Auto-fit grid (min 300px cols) --&gt;
+&lt;grid&gt;
+  &lt;article&gt;Item 1&lt;/article&gt;
+  &lt;article&gt;Item 2&lt;/article&gt;
+&lt;/grid&gt;
+
+&lt;!-- Flex wrap --&gt;
+&lt;gridflex&gt;
+  &lt;label&gt;Item 1&lt;/label&gt;
+  &lt;label&gt;Item 2&lt;/label&gt;
+&lt;/gridflex&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- ========== ARTICLE ========== -->
+  <section id="article" class="docs-section">
+    <h2><i data-lucide="file-text"></i> Article</h2>
+    <p class="desc">Card container with optional sticky header and footer.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content stack">
+        <article>
+          <header><h3>Article Title</h3></header>
+          <p>Content with neubrutalism styling - bold borders and offset shadow.</p>
+          <footer>Article Footer</footer>
+        </article>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;article&gt;
+  &lt;header&gt;&lt;h3&gt;Title&lt;/h3&gt;&lt;/header&gt;
+  &lt;p&gt;Content here.&lt;/p&gt;
+  &lt;footer&gt;Footer&lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+    </div>
+
+    <div class="pg-box" data-playground="articlecomp">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result stack"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== DROPDOWN ========== -->
+  <section id="dropdown" class="docs-section">
+    <h2><i data-lucide="chevron-down"></i> Dropdown</h2>
+    <p class="desc">Hover-activated dropdown menu.</p>
+
+    <div class="preview-box allow-overflow">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content" style="min-height:140px;align-items:flex-start;">
+        <div class="dropdown">
+          <button class="dropdown-button">Hover me</button>
+          <div class="dropdown-content">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+            <a href="#">Option 3</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;div class="dropdown"&gt;
+  &lt;button class="dropdown-button"&gt;Menu&lt;/button&gt;
+  &lt;div class="dropdown-content"&gt;
+    &lt;a href="#"&gt;Option 1&lt;/a&gt;
+    &lt;a href="#"&gt;Option 2&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="pg-box allow-overflow" data-playground="dropdown">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result" style="min-height:120px;align-items:flex-start;"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== MODAL ========== -->
+  <section id="modal" class="docs-section">
+    <h2><i data-lucide="maximize-2"></i> Modal</h2>
+    <p class="desc">Full-screen overlay with grid-pattern background and JS API.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content">
+        <button onclick="document.getElementById('demo-modal').setAttribute('open','')">Open Modal</button>
+      </div>
+    </div>
+
+    <div class="modal" id="demo-modal">
+      <div class="modal-content" style="background:var(--background-color);border:3px solid var(--border-color);box-shadow:6px 6px 0 var(--border-color);padding:24px;max-width:400px;margin:15% auto;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <h3 style="margin:0;">Modal Title</h3>
+          <button class="clear-button" onclick="document.getElementById('demo-modal').removeAttribute('open')" style="width:auto;font-size:20px;cursor:pointer;">&times;</button>
+        </div>
+        <p>This is a modal with neubrutalism grid-pattern background.</p>
+        <button onclick="document.getElementById('demo-modal').removeAttribute('open')">Close</button>
+      </div>
+    </div>
+
+    <div class="code-tabs">
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="modal-html">HTML</button>
+        <button class="tab-btn" data-tab="modal-js">JavaScript</button>
+      </div>
+      <div id="modal-html" class="tab-panel active">
+        <div class="code-box">
+          <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+          <pre><code class="lang-html">&lt;button class="openModal-demo"
+  target-modal="my-modal"&gt;Open&lt;/button&gt;
+
+&lt;div class="modal" id="my-modal"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;button class="close-modal"
+      xclose-modal&gt;&amp;times;&lt;/button&gt;
+    &lt;h3&gt;Title&lt;/h3&gt;
+    &lt;p&gt;Content&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+      <div id="modal-js" class="tab-panel">
+        <div class="code-box">
+          <div class="code-header"><span>JS</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+          <pre><code class="lang-js">// Include modal.js:
+// &lt;script src="tags/modal.js"&gt;&lt;/script&gt;
+
+// Manual control:
+const modal = document.getElementById('my-modal');
+modal.setAttribute('open', '');    // open
+modal.removeAttribute('open');     // close
+
+// Callbacks via attributes:
+// action-open-callback="onOpen()"
+// action-close-callback="onClose()"</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TABS ========== -->
+  <section id="tabs" class="docs-section">
+    <h2><i data-lucide="panel-top"></i> Tabs</h2>
+    <p class="desc">Tab navigation with animated content switching.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content stack" style="padding:0;">
+        <div class="code-tabs" style="margin:0;">
+          <div class="tab-bar">
+            <button class="tab-btn active" data-tab="dtab1">Tab 1</button>
+            <button class="tab-btn" data-tab="dtab2">Tab 2</button>
+            <button class="tab-btn" data-tab="dtab3">Tab 3</button>
+          </div>
+          <div id="dtab1" class="tab-panel active" style="padding:16px;border:3px solid var(--border-color);border-top:none;">
+            Content for Tab 1.
+          </div>
+          <div id="dtab2" class="tab-panel" style="padding:16px;border:3px solid var(--border-color);border-top:none;">
+            Content for Tab 2.
+          </div>
+          <div id="dtab3" class="tab-panel" style="padding:16px;border:3px solid var(--border-color);border-top:none;">
+            Content for Tab 3.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-tabs">
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="tabs-html">HTML</button>
+        <button class="tab-btn" data-tab="tabs-js">JavaScript</button>
+      </div>
+      <div id="tabs-html" class="tab-panel active">
+        <div class="code-box">
+          <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+          <pre><code class="lang-html">&lt;div class="tabs"&gt;
+  &lt;button class="tablinks active"
+    onclick="openTab(event, 'tab1')"&gt;Tab 1&lt;/button&gt;
+  &lt;button class="tablinks"
+    onclick="openTab(event, 'tab2')"&gt;Tab 2&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id="tab1" class="tabcontent"
+  style="display:block"&gt;
+  &lt;p&gt;Tab 1 content&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="tab2" class="tabcontent"&gt;
+  &lt;p&gt;Tab 2 content&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+      <div id="tabs-js" class="tab-panel">
+        <div class="code-box">
+          <div class="code-header"><span>JS</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+          <pre><code class="lang-js">// Include tabs.js:
+// &lt;script src="tags/tabs.js"&gt;&lt;/script&gt;
+
+function openTab(evt, tabName) {
+  // Hides all .tabcontent
+  // Removes .active from .tablinks
+  // Shows target tab
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== UTILITIES ========== -->
+  <section id="utilities" class="docs-section">
+    <h2><i data-lucide="wrench"></i> Utilities</h2>
+    <p class="desc">Attribute modifiers for borders, shapes, and grouping.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content stack" style="gap:16px;">
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+          <button>Default</button>
+          <button no-border>no-border</button>
+          <button dots>dots</button>
+          <button dashed>dashed</button>
+          <button class="rounded-full">rounded-full</button>
+        </div>
+        <div>
+          <strong style="font-size:13px;display:block;margin-bottom:8px;">Input Group (role="group")</strong>
+          <div role="group">
+            <input type="text" placeholder="Search...">
+            <button>Go</button>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:center;height:40px;">
+          <span>Left</span>
+          <div class="vr"></div>
+          <span>Right</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;!-- Border modifiers --&gt;
+&lt;button no-border&gt;No Border&lt;/button&gt;
+&lt;button dots&gt;Dotted&lt;/button&gt;
+&lt;button dashed&gt;Dashed&lt;/button&gt;
+
+&lt;!-- Shape --&gt;
+&lt;button class="rounded-full"&gt;Round&lt;/button&gt;
+&lt;div no-rounded&gt;No radius&lt;/div&gt;
+
+&lt;!-- Input group --&gt;
+&lt;div role="group"&gt;
+  &lt;input type="text" placeholder="..."&gt;
+  &lt;button&gt;Go&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Vertical rule --&gt;
+&lt;div class="vr"&gt;&lt;/div&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- ========== ESSENTIALS ========== -->
+  <section id="essentials" class="docs-section">
+    <h2><i data-lucide="box"></i> Essentials</h2>
+    <p class="desc">Layout helpers: containers, margins, paddings, flex, typography.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content stack" style="gap:16px;">
+        <div>
+          <strong style="font-size:13px;display:block;margin-bottom:8px;">Container</strong>
+          <div class="container" style="background:var(--none-color);padding:12px;border:2px dashed var(--border-color);">
+            .container (max-width: 1200px, centered)
+          </div>
+        </div>
+        <div>
+          <strong style="font-size:13px;display:block;margin-bottom:8px;">Flex</strong>
+          <div class="flex justify-space-between" style="background:var(--none-color);padding:8px;border:2px dashed var(--border-color);">
+            <label>Left</label>
+            <label>Right</label>
+          </div>
+        </div>
+        <div>
+          <strong style="font-size:13px;display:block;margin-bottom:8px;">Typography</strong>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;">
+            <span class="font-bold">font-bold</span>
+            <span class="font-italic">font-italic</span>
+            <span class="font-normal">font-normal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;!-- Container --&gt;
+&lt;div class="container"&gt;...&lt;/div&gt;
+
+&lt;!-- Spacing --&gt;
+&lt;div class="margin-top"&gt;...&lt;/div&gt;
+&lt;div class="margin-bt"&gt;...&lt;/div&gt;
+&lt;div class="padding-lr"&gt;...&lt;/div&gt;
+
+&lt;!-- Flex --&gt;
+&lt;div class="flex justify-center align-center"&gt;...&lt;/div&gt;
+&lt;div class="flex justify-space-between"&gt;...&lt;/div&gt;
+
+&lt;!-- Typography --&gt;
+&lt;span class="font-bold"&gt;Bold&lt;/span&gt;
+&lt;span class="font-italic"&gt;Italic&lt;/span&gt;
+&lt;div class="text-center"&gt;Centered&lt;/div&gt;</code></pre>
+    </div>
+  </section>
+
+  <div class="docs-footer">
+    Simple Neubrutalism &mdash; Lightweight CSS for bold web aesthetics.
+  </div>
+</main>
+
+<!-- COLOR MENU (floating) -->
+<div class="docs-color-menu">
+  <div class="color-panel">
+    <h4><i data-lucide="palette"></i> Colors</h4>
+    <div class="color-row"><span>Primary</span><input type="color" data-var="--primary-color" value="#FFD93D"></div>
+    <div class="color-row"><span>Secondary</span><input type="color" data-var="--secondary-color" value="#FFB200"></div>
+    <div class="color-row"><span>Background</span><input type="color" data-var="--background-color" value="#FFF8E3"></div>
+    <div class="color-row"><span>Border</span><input type="color" data-var="--border-color" value="#4C3D3D"></div>
+    <div class="color-row"><span>Font</span><input type="color" data-var="--font-color" value="#4C3D3D"></div>
+    <div class="color-row"><span>None</span><input type="color" data-var="--none-color" value="#E6DDC4"></div>
+    <div class="preset-row">
+      <span class="preset-label">Presets</span>
+      <button class="preset-btn" data-preset="default" style="background:#FFD93D;" title="Default"></button>
+      <button class="preset-btn" data-preset="ocean" style="background:#74C0FC;" title="Ocean"></button>
+      <button class="preset-btn" data-preset="forest" style="background:#8CE99A;" title="Forest"></button>
+      <button class="preset-btn" data-preset="rose" style="background:#FFA8C5;" title="Rose"></button>
+      <button class="preset-btn" data-preset="lavender" style="background:#D0BFFF;" title="Lavender"></button>
+      <button class="preset-btn" data-preset="sunset" style="background:#FFA94D;" title="Sunset"></button>
+    </div>
+  </div>
+  <button class="color-toggle"><i data-lucide="palette"></i></button>
+</div>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="../tags/datetime.js"></script>
+<script src="docs.js"></script>
+</body>
+</html>

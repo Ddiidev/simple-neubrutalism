@@ -1,10 +1,15 @@
 /* Input related styles */
 input[type="text"],
 input[type="number"],
-input[type="password"] {
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
   width: 100%;
   padding: 16px;
   font-weight: bold;
+  font-family: var(--font-family);
+  font-size: 1rem;
   color: var(--font-color);
   border: 3px solid var(--border-color);
   box-shadow: 6px 6px 0 var(--border-color);
@@ -60,23 +65,22 @@ input[type="submit"]:hover {
   transform: translate(-1px, -1px);
 }
 
-input[type="date"] {
-  background-color: var(--background-color);
-  color: var(--font-color);
-  font-family: var(--font-family);
-  font-size: 1rem;
-  padding: 0.5rem;
-  border: 3px solid var(--border-color);
-  box-shadow: 3px 3px 0 var(--border-color);
-  transition: all 0.2s ease-in-out;
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
   cursor: pointer;
+  transition: transform 0.1s ease;
 }
 
-input[type="date"]:hover {
+input[type="date"]:hover,
+input[type="time"]:hover,
+input[type="datetime-local"]:hover {
   transform: translate(-1px, -1px);
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   padding: 5px;
   cursor: pointer;
   border: 2px solid var(--border-color);

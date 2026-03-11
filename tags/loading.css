@@ -4,23 +4,19 @@
 }
 
 .loading-dots::after {
-  content: ".";
-  animation: dots 1s infinite;
+  content: "...";
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: dots 1s infinite steps(4, end);
 }
 
 @keyframes dots {
-  0% {
-    content: ".";
-  }
-  33% {
-    content: "..";
-  }
-  66% {
-    content: "...";
-  }
-  100% {
-    content: ".";
-  }
+  0%   { width: 0; }
+  25%  { width: .4em; }
+  50%  { width: .8em; }
+  75%  { width: 1.2em; }
 }
 
 .loading-dots.fade-out {

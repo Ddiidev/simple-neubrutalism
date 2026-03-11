@@ -462,12 +462,50 @@ const playgroundConfigs = {
     controls: [
       { name: 'text', type: 'text', label: 'Button Text', default: 'Menu' },
       { name: 'items', type: 'number', label: 'Items', default: '3' },
+      { name: 'separator', type: 'select', label: 'Separator', options: [
+        { value: 'none', label: 'None' },
+        { value: 'solid', label: 'Solid' },
+        { value: 'dashed', label: 'Dashed' },
+        { value: 'dotted', label: 'Dotted' },
+      ], default: 'none' },
+      { name: 'maxItems', type: 'number', label: 'Max Items', default: '' },
     ],
     render(v) {
-      const n = Math.max(1, Math.min(6, parseInt(v.items) || 3));
+      const n = Math.max(1, Math.min(12, parseInt(v.items) || 3));
       let items = '';
       for (let i = 0; i < n; i++) items += `    <a href="#">Item ${i+1}</a>\n`;
-      const code = `<div class="dropdown">\n  <button class="dropdown-button">${v.text || 'Menu'}</button>\n  <div class="dropdown-content">\n${items}  </div>\n</div>`;
+      const attrs = [];
+      if (v.separator && v.separator !== 'none') attrs.push(`separator="${v.separator}"`);
+      const maxItems = parseInt(v.maxItems);
+      if (maxItems >= 1 && maxItems <= 10) attrs.push(`max-items="${maxItems}"`);
+      const attrStr = attrs.length ? ' ' + attrs.join(' ') : '';
+      const code = `<div class="dropdown"${attrStr}>\n  <button class="dropdown-button">${v.text || 'Menu'}</button>\n  <div class="dropdown-content">\n${items}  </div>\n</div>`;
+      return { html: code, code };
+    }
+  },
+
+  select: {
+    controls: [
+      { name: 'items', type: 'number', label: 'Items', default: '4' },
+      { name: 'placeholder', type: 'text', label: 'Placeholder', default: 'Choose...' },
+      { name: 'separator', type: 'select', label: 'Separator', options: [
+        { value: 'dashed', label: 'Dashed' },
+        { value: 'solid', label: 'Solid' },
+        { value: 'dotted', label: 'Dotted' },
+      ], default: 'dashed' },
+      { name: 'maxItems', type: 'number', label: 'Max Items', default: '' },
+    ],
+    render(v) {
+      const n = Math.max(1, Math.min(12, parseInt(v.items) || 4));
+      let options = '';
+      for (let i = 0; i < n; i++) options += `  <option value="${i+1}">Option ${i+1}</option>\n`;
+      const attrs = [];
+      if (v.placeholder) attrs.push(`placeholder="${v.placeholder}"`);
+      if (v.separator && v.separator !== 'dashed') attrs.push(`separator="${v.separator}"`);
+      const maxItems = parseInt(v.maxItems);
+      if (maxItems >= 1 && maxItems <= 10) attrs.push(`max-items="${maxItems}"`);
+      const attrStr = attrs.length ? ' ' + attrs.join(' ') : '';
+      const code = `<nb-select${attrStr}>\n${options}</nb-select>`;
       return { html: code, code };
     }
   },
@@ -502,7 +540,7 @@ const playgroundConfigs = {
     render(v) {
       const n = Math.max(1, Math.min(8, parseInt(v.items) || 3));
       const tag = v.useFlex ? 'gridflex' : 'grid';
-      const childTag = v.useFlex ? 'label' : 'div';
+      const childTag = 'label';
       let children = '';
       for (let i = 0; i < n; i++) children += `  <${childTag}>Item ${i+1}</${childTag}>\n`;
       const code = `<${tag}>\n${children}</${tag}>`;
@@ -514,12 +552,14 @@ const playgroundConfigs = {
     controls: [
       { name: 'showHeader', type: 'checkbox', label: 'Show header', default: true },
       { name: 'showFooter', type: 'checkbox', label: 'Show footer', default: true },
+      { name: 'useWindow', type: 'checkbox', label: 'Window' },
     ],
     render(v) {
-      let code = '<article>\n';
-      if (v.showHeader) code += '  <header><h3>Title</h3></header>\n';
-      code += '  <p>Article content with neubrutalism styling.</p>\n';
-      if (v.showFooter) code += '  <footer>Footer</footer>\n';
+      const tag = v.useWindow ? '<article window>' : '<article>';
+      let code = tag + '\n';
+      if (v.showHeader) code += v.useWindow ? '  <header>Title</header>\n' : '  <header><h3>Title</h3></header>\n';
+      code += v.useWindow ? '  <p style="padding:16px;">Article content with neubrutalism styling.</p>\n' : '  <p>Article content with neubrutalism styling.</p>\n';
+      if (v.showFooter) code += v.useWindow ? '  <footer style="padding:12px 16px;">Footer</footer>\n' : '  <footer>Footer</footer>\n';
       code += '</article>';
       return { html: code, code };
     }

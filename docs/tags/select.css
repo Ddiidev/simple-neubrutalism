@@ -62,7 +62,6 @@ nb-select[open] .nb-select-icon {
   top: calc(100% + 8px);
   left: 0;
   width: 100%;
-  max-height: 250px;
   overflow-y: auto;
   border: 3px solid var(--border-color);
   box-shadow: 6px 6px 0 var(--border-color);
@@ -96,11 +95,14 @@ nb-select[open] .nb-select-popover {
 
 .nb-select-option {
   width: 100%;
+  display: block;
   text-align: left;
   padding: 10px 12px;
   background: transparent;
   border: none;
   border-bottom: 2px dashed var(--border-color);
+  box-shadow: none;
+  border-radius: 0;
   font-family: var(--font-family);
   font-size: 1rem;
   font-weight: bold;
@@ -115,8 +117,39 @@ nb-select[open] .nb-select-popover {
 
 .nb-select-option:hover {
   background-color: var(--none-color);
+  transform: none;
+}
+
+.nb-select-option:active {
+  transform: none;
+  box-shadow: none;
 }
 
 .nb-select-option.is-selected {
   background-color: var(--primary-color);
 }
+
+/* Separator variants */
+nb-select[separator="solid"] .nb-select-option {
+  border-bottom-style: solid;
+}
+
+nb-select[separator="dotted"] .nb-select-option {
+  border-bottom-style: dotted;
+}
+
+.nb-select-popover {
+  overflow-x: hidden;
+}
+
+/* Max items with scrollbar */
+nb-select[max-items="1"] .nb-select-popover { max-height: calc(1 * 42px); }
+nb-select[max-items="2"] .nb-select-popover { max-height: calc(2 * 42px); }
+nb-select[max-items="3"] .nb-select-popover { max-height: calc(3 * 42px); }
+nb-select[max-items="4"] .nb-select-popover { max-height: calc(4 * 42px); }
+nb-select[max-items="5"] .nb-select-popover { max-height: calc(5 * 42px); }
+nb-select[max-items="6"] .nb-select-popover { max-height: calc(6 * 42px); }
+nb-select[max-items="7"] .nb-select-popover { max-height: calc(7 * 42px); }
+nb-select[max-items="8"] .nb-select-popover { max-height: calc(8 * 42px); }
+nb-select[max-items="9"] .nb-select-popover { max-height: calc(9 * 42px); }
+nb-select[max-items="10"] .nb-select-popover { max-height: calc(10 * 42px); }

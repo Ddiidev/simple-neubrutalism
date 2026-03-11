@@ -85,7 +85,7 @@
       }
       this.button = this.querySelector('.nb-select-button');
       this.valueDisplay = this.querySelector('.nb-select-value');
-      this.popover = this.querySelector('.nb-select-popover');
+      this.popoverPanel = this.querySelector('.nb-select-popover');
       this.list = this.querySelector('.nb-select-list');
       
       this.renderList();

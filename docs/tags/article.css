@@ -32,3 +32,36 @@ article>footer {
   margin-left: -20px;
   margin-right: -20px;
 }
+
+/* Window variant */
+article[window] {
+  padding: 0;
+  overflow: hidden;
+}
+
+article[window]>header {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: var(--secondary-color);
+  border-bottom: 3px solid var(--border-color);
+}
+
+article[window]>header svg {
+  width: 14px;
+  height: 14px;
+}
+
+article[window]>footer {
+  position: static;
+  border-top: 2px dashed var(--border-color);
+  padding: 0;
+  margin: 0;
+}

@@ -97,12 +97,38 @@ Os workflows em `.github/workflows/` fazem:
 - build de `dist/` em push/PR
 - publish no npm ao subir uma tag `v*.*.*`
 
-Você precisa adicionar o secret `NPM_TOKEN` no repositório. Depois disso:
+Você precisa adicionar o secret `NPM_TOKEN` no GitHub.
+
+Criar token no npm:
+
+- Acesse `npmjs.com` em Account Settings > Access Tokens
+- Link direto: https://www.npmjs.com/settings/tokens
+- Crie um token do tipo `Automation`
+
+Adicionar no GitHub:
+
+- Repositório > `Settings` > `Secrets and variables` > `Actions`
+- `New repository secret`
+- Nome: `NPM_TOKEN`
+- Valor: cole o token gerado no npm
+
+Fluxo de release:
+
+1. Atualize a versão no `package.json`
+2. Faça commit
+3. Crie a tag com a mesma versão do `package.json`
+4. Envie a tag para o remoto
+
+Exemplo:
 
 ```bash
+git add package.json package-lock.json
+git commit -m "release: v1.0.1"
 git tag v1.0.1
 git push origin v1.0.1
 ```
+
+Observação: o workflow agora falha se a tag `vX.Y.Z` não bater com o campo `version` do `package.json`.
 
 ## Customização
 

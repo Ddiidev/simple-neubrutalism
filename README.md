@@ -29,15 +29,23 @@ O Simple Neubrutalism CSS é uma biblioteca com componentes básicos para criar 
 
 ## Uso
 
-1. Adicione o arquivo CSS ao seu projeto:
+1. Adicione o loader unico no `head`:
+```html
+<script src="neubrutalism.js"></script>
+```
+
+Isso carrega automaticamente `neubrutalism.css` e os JS de `modal`, `tabs`, `select` e `datetime`.
+
+2. Se preferir continuar no modo modular:
 ```html
 <link rel="stylesheet" href="neubrutalism.css">
-
-<!-- Para modal, tabs e datetime customizado -->
+<script src="tags/modal.js"></script>
+<script src="tags/tabs.js"></script>
+<script src="tags/select.js"></script>
 <script src="tags/datetime.js"></script>
 ```
 
-2. Use os atributos e classes em seus elementos:
+3. Use os atributos e classes em seus elementos:
 ```html
 <!-- Botão com estilo neubrutalism -->
 <button>Clique aqui</button>

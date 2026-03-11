@@ -25,6 +25,18 @@
 
 <!-- SIDEBAR -->
 <nav class="docs-sidebar">
+  <div class="docs-search">
+    <label class="docs-search-label" for="docs-search-input">Search docs</label>
+    <div class="docs-search-input-wrap">
+      <i data-lucide="search"></i>
+      <input id="docs-search-input" type="search" placeholder="Search components, aliases, features">
+      <button type="button" class="docs-search-clear" id="docs-search-clear" hidden aria-label="Clear search">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="docs-search-results" id="docs-search-results" hidden></div>
+  </div>
+
   <div class="nav-group">Start</div>
   <a href="#getting-started" class="nav-item active"><i data-lucide="rocket"></i> Introduction</a>
 
@@ -73,9 +85,11 @@
       <h3><i data-lucide="download"></i> Installation</h3>
       <div class="code-box">
         <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
-        <pre><code class="lang-html">&lt;link rel="stylesheet" href="neubrutalism.css"&gt;
+        <pre><code class="lang-html">&lt;!-- Single-tag loader --&gt;
+&lt;script src="neubrutalism.js"&gt;&lt;/script&gt;
 
-&lt;!-- For modal, tabs, select, and custom datetime --&gt;
+&lt;!-- Optional modular setup --&gt;
+&lt;link rel="stylesheet" href="neubrutalism.css"&gt;
 &lt;script src="tags/modal.js"&gt;&lt;/script&gt;
 &lt;script src="tags/tabs.js"&gt;&lt;/script&gt;
 &lt;script src="tags/select.js"&gt;&lt;/script&gt;

@@ -79,15 +79,15 @@ npm run build
 CDN full-all via jsDelivr depois de publicar no npm:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@andrelzss/simple-neubrutalism@1.0.1/dist/neubrutalism.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.1/dist/neubrutalism.all.min.js"></script>
 ```
 
 CDN modular:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@andrelzss/simple-neubrutalism@1.0.1/dist/neubrutalism.min.css">
-<script src="https://cdn.jsdelivr.net/npm/@andrelzss/simple-neubrutalism@1.0.1/dist/tags/select.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@andrelzss/simple-neubrutalism@1.0.1/dist/tags/datetime.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.1/dist/neubrutalism.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.1/dist/tags/select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.1/dist/tags/datetime.min.js"></script>
 ```
 
 ## Publicação automática

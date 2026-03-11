@@ -1,6 +1,6 @@
 {
-  "name": "simple-neubrutalism",
-  "version": "1.0.0",
+  "name": "@andrelzss/simple-neubrutalism",
+  "version": "1.0.1",
   "description": "Simple neubrutalism CSS and JS library",
   "private": false,
   "license": "UNLICENSED",

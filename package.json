@@ -1,0 +1,34 @@
+{
+  "name": "simple-neubrutalism",
+  "version": "1.0.0",
+  "description": "Simple neubrutalism CSS and JS library",
+  "private": false,
+  "license": "UNLICENSED",
+  "main": "dist/neubrutalism.js",
+  "style": "dist/neubrutalism.css",
+  "jsdelivr": "dist/neubrutalism.all.min.js",
+  "unpkg": "dist/neubrutalism.all.min.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": "./dist/neubrutalism.js",
+    "./all": "./dist/neubrutalism.all.js",
+    "./all.min": "./dist/neubrutalism.all.min.js",
+    "./css": "./dist/neubrutalism.css",
+    "./css.min": "./dist/neubrutalism.min.css",
+    "./tags/*": "./dist/tags/*"
+  },
+  "scripts": {
+    "build": "node scripts/build-dist.mjs",
+    "prepublishOnly": "npm run build",
+    "sync:docs": "powershell -ExecutionPolicy Bypass -File scripts/sync-pages-assets.ps1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.1"
+  }
+}

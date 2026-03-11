@@ -60,6 +60,50 @@ Isso carrega automaticamente `neubrutalism.css` e os JS de `modal`, `tabs`, `sel
 <div nbtl-border>Conteúdo</div>
 ```
 
+## Dist e CDN
+
+O projeto agora gera:
+
+- `dist/neubrutalism.css` e `dist/neubrutalism.min.css`
+- `dist/neubrutalism.js` e `dist/neubrutalism.min.js`
+- `dist/neubrutalism.all.js` e `dist/neubrutalism.all.min.js`
+- `dist/tags/*.js`, `dist/tags/*.min.js`, `dist/tags/*.css`, `dist/tags/*.min.css`
+
+Build local:
+
+```bash
+npm install
+npm run build
+```
+
+CDN full-all via jsDelivr depois de publicar no npm:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/simple-neubrutalism@1.0.0/dist/neubrutalism.all.min.js"></script>
+```
+
+CDN modular:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-neubrutalism@1.0.0/dist/neubrutalism.min.css">
+<script src="https://cdn.jsdelivr.net/npm/simple-neubrutalism@1.0.0/dist/tags/select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-neubrutalism@1.0.0/dist/tags/datetime.min.js"></script>
+```
+
+## Publicação automática
+
+Os workflows em `.github/workflows/` fazem:
+
+- build de `dist/` em push/PR
+- publish no npm ao subir uma tag `v*.*.*`
+
+Você precisa adicionar o secret `NPM_TOKEN` no repositório. Depois disso:
+
+```bash
+git tag v1.0.1
+git push origin v1.0.1
+```
+
 ## Customização
 
 Você pode personalizar as cores e medidas através das variáveis CSS:

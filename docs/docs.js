@@ -258,26 +258,39 @@ function highlightCode(el) {
 }
 
 function highlightHTML(code) {
-  return code
+  code = code
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="hl-comment">$1</span>')
-    .replace(/(&lt;\/?)([\w-]+)/g, '$1<span class="hl-tag">$2</span>')
-    .replace(/([\w-]+)(=)/g, '<span class="hl-attr">$1</span>$2')
-    .replace(/("([^"]*)")/g, '<span class="hl-str">$1</span>');
+    .replace(/>/g, '&gt;');
+  code = code.replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="hl-comment">$1</span>');
+  code = code.replace(/(&lt;\/?)([\w-]+)([\s\S]*?)(&gt;)/g, function(m, open, tag, attrs, close) {
+    var result = open + '<span class="hl-tag">' + tag + '</span>';
+    if (attrs) {
+      result += attrs.replace(/([\w-]+)="([^"]*)"/g,
+        '<span class="hl-attr">$1</span>=<span class="hl-str">"$2"</span>');
+    }
+    return result + close;
+  });
+  return code;
 }
 
 function highlightJS(code) {
-  return code
+  var tokens = [];
+  function token(cls, text) {
+    tokens.push('<span class="hl-' + cls + '">' + text + '</span>');
+    return '{{HL' + (tokens.length - 1) + '}}';
+  }
+  code = code
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/(\/\/.*)/g, '<span class="hl-comment">$1</span>')
-    .replace(/\b(const|let|var|function|if|else|return|new|this|true|false|null|undefined|for|of|in|class|import|export|default|async|await)\b/g, '<span class="hl-kw">$1</span>')
-    .replace(/('([^']*)'|"([^"]*)")/g, '<span class="hl-str">$1</span>')
-    .replace(/\b(\d+)\b/g, '<span class="hl-num">$1</span>')
-    .replace(/\b([a-zA-Z_]\w*)\s*\(/g, '<span class="hl-func">$1</span>(');
+    .replace(/>/g, '&gt;');
+  code = code.replace(/(\/\/.*)/g, function(m) { return token('comment', m); });
+  code = code.replace(/('([^']*)'|"([^"]*)")/g, function(m) { return token('str', m); });
+  code = code.replace(/\b(const|let|var|function|if|else|return|new|this|true|false|null|undefined|for|of|in|class|import|export|default|async|await)\b/g, function(m) { return token('kw', m); });
+  code = code.replace(/\b(\d+)\b/g, function(m) { return token('num', m); });
+  code = code.replace(/\b([a-zA-Z_]\w*)\s*\(/g, function(m, name) { return token('func', name) + '('; });
+  code = code.replace(/\{\{HL(\d+)\}\}/g, function(m, idx) { return tokens[idx]; });
+  return code;
 }
 
 function highlightAllCode() {
@@ -387,14 +400,13 @@ const playgroundConfigs = {
 
   textarea: {
     controls: [
-      { name: 'rows', type: 'number', label: 'Rows', default: '4' },
       { name: 'noResize', type: 'checkbox', label: 'No resize' },
       { name: 'dashed', type: 'checkbox', label: 'Dashed' },
     ],
     render(v) {
       const attrs = [v.noResize ? 'no-resize' : '', v.dashed ? 'dashed' : ''].filter(Boolean);
       const attrStr = attrs.length ? ' ' + attrs.join(' ') : '';
-      const code = `<textarea rows="${v.rows || 4}"${attrStr} placeholder="Type..."></textarea>`;
+      const code = `<textarea rows="4"${attrStr} placeholder="Type..."></textarea>`;
       return { html: code, code };
     }
   },
@@ -478,6 +490,22 @@ const playgroundConfigs = {
     render(v) {
       const attrs = ['nbtl', v.noBorder ? 'no-border' : '', v.roundedFull ? 'class="rounded-full"' : ''].filter(Boolean);
       const code = `<img ${attrs.join(' ')} src="https://picsum.photos/200/150" alt="Example">`;
+      return { html: code, code };
+    }
+  },
+
+  gridcomp: {
+    controls: [
+      { name: 'items', type: 'number', label: 'Items', default: '3' },
+      { name: 'useFlex', type: 'checkbox', label: 'Use gridflex' },
+    ],
+    render(v) {
+      const n = Math.max(1, Math.min(8, parseInt(v.items) || 3));
+      const tag = v.useFlex ? 'gridflex' : 'grid';
+      const childTag = v.useFlex ? 'label' : 'div';
+      let children = '';
+      for (let i = 0; i < n; i++) children += `  <${childTag}>Item ${i+1}</${childTag}>\n`;
+      const code = `<${tag}>\n${children}</${tag}>`;
       return { html: code, code };
     }
   },

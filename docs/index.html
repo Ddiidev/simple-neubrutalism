@@ -31,6 +31,7 @@
   <div class="nav-group">Form</div>
   <a href="#button" class="nav-item"><i data-lucide="square"></i> Button</a>
   <a href="#input" class="nav-item"><i data-lucide="text-cursor-input"></i> Input</a>
+  <a href="#checkbox" class="nav-item"><i data-lucide="check-square"></i> Checkbox</a>
   <a href="#datetime" class="nav-item"><i data-lucide="calendar"></i> Datetime</a>
   <a href="#textarea" class="nav-item"><i data-lucide="text"></i> Textarea</a>
   <a href="#label" class="nav-item"><i data-lucide="tag"></i> Label</a>
@@ -48,6 +49,7 @@
 
   <div class="nav-group">Interactive</div>
   <a href="#dropdown" class="nav-item"><i data-lucide="chevron-down"></i> Dropdown</a>
+  <a href="#select" class="nav-item"><i data-lucide="list"></i> Select</a>
   <a href="#modal" class="nav-item"><i data-lucide="maximize-2"></i> Modal</a>
   <a href="#tabs" class="nav-item"><i data-lucide="panel-top"></i> Tabs</a>
 
@@ -73,9 +75,10 @@
         <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
         <pre><code class="lang-html">&lt;link rel="stylesheet" href="neubrutalism.css"&gt;
 
-&lt;!-- For modal, tabs, and custom datetime --&gt;
+&lt;!-- For modal, tabs, select, and custom datetime --&gt;
 &lt;script src="tags/modal.js"&gt;&lt;/script&gt;
 &lt;script src="tags/tabs.js"&gt;&lt;/script&gt;
+&lt;script src="tags/select.js"&gt;&lt;/script&gt;
 &lt;script src="tags/datetime.js"&gt;&lt;/script&gt;</code></pre>
       </div>
     </div>
@@ -200,6 +203,31 @@ btn.addEventListener('click', () => {
       <div class="pg-controls"></div>
       <div class="pg-result stack"></div>
       <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
+  <!-- ========== CHECKBOX ========== -->
+  <section id="checkbox" class="docs-section">
+    <h2><i data-lucide="check-square"></i> Checkbox</h2>
+    <p class="desc">Characteristic checkbox with neubrutalist borders and custom checked state.</p>
+
+    <div class="preview-box">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content stack">
+        <label style="display:flex;align-items:center;gap:12px;font-weight:bold;cursor:pointer;">
+          <input type="checkbox" name="option1"> Check me out
+        </label>
+        <label style="display:flex;align-items:center;gap:12px;font-weight:bold;cursor:pointer;">
+          <input type="checkbox" name="option2" checked> Already checked
+        </label>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;label style="display:flex;align-items:center;gap:12px;font-weight:bold;cursor:pointer;"&gt;
+  &lt;input type="checkbox"&gt; Check me out
+&lt;/label&gt;</code></pre>
     </div>
   </section>
 
@@ -487,6 +515,13 @@ btn.addEventListener('click', () => {
   &lt;label&gt;Item 2&lt;/label&gt;
 &lt;/gridflex&gt;</code></pre>
     </div>
+
+    <div class="pg-box" data-playground="gridcomp">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result stack"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
   </section>
 
   <!-- ========== ARTICLE ========== -->
@@ -560,6 +595,46 @@ btn.addEventListener('click', () => {
     </div>
   </section>
 
+  <!-- ========== SELECT ========== -->
+  <section id="select" class="docs-section">
+    <h2><i data-lucide="list"></i> Select</h2>
+    <p class="desc">Custom select web component replacing the native OS dropdowns.</p>
+
+    <div class="preview-box allow-overflow">
+      <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
+      <div class="preview-content stack">
+        <nb-select name="framework" placeholder="Choose a framework">
+          <option value="react">React</option>
+          <option value="vue">Vue</option>
+          <option value="angular">Angular</option>
+          <option value="svelte">Svelte</option>
+        </nb-select>
+        <nb-select name="number" value="2">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </nb-select>
+      </div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+      <pre><code class="lang-html">&lt;!-- Requires tags/select.js --&gt;
+&lt;nb-select name="framework" placeholder="Choose a framework"&gt;
+  &lt;option value="react"&gt;React&lt;/option&gt;
+  &lt;option value="vue"&gt;Vue&lt;/option&gt;
+  &lt;option value="angular"&gt;Angular&lt;/option&gt;
+&lt;/nb-select&gt;</code></pre>
+    </div>
+
+    <div class="pg-box allow-overflow" data-playground="select">
+      <div class="pg-header"><i data-lucide="sliders-horizontal"></i> Playground</div>
+      <div class="pg-controls"></div>
+      <div class="pg-result stack"></div>
+      <div class="pg-code"><pre><code class="lang-html"></code></pre></div>
+    </div>
+  </section>
+
   <!-- ========== MODAL ========== -->
   <section id="modal" class="docs-section">
     <h2><i data-lucide="maximize-2"></i> Modal</h2>
@@ -591,7 +666,8 @@ btn.addEventListener('click', () => {
       <div id="modal-html" class="tab-panel active">
         <div class="code-box">
           <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
-          <pre><code class="lang-html">&lt;button class="openModal-demo"
+          <pre><code class="lang-html">&lt;!-- Option 1: Using modal.js auto-wiring --&gt;
+&lt;button class="openModal-mymodal"
   target-modal="my-modal"&gt;Open&lt;/button&gt;
 
 &lt;div class="modal" id="my-modal"&gt;
@@ -601,7 +677,11 @@ btn.addEventListener('click', () => {
     &lt;h3&gt;Title&lt;/h3&gt;
     &lt;p&gt;Content&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+
+&lt;!-- Option 2: Manual open/close via [open] attribute --&gt;
+&lt;button onclick="document.getElementById('my-modal')
+  .setAttribute('open', '')"&gt;Open&lt;/button&gt;</code></pre>
         </div>
       </div>
       <div id="modal-js" class="tab-panel">
@@ -610,14 +690,24 @@ btn.addEventListener('click', () => {
           <pre><code class="lang-js">// Include modal.js:
 // &lt;script src="tags/modal.js"&gt;&lt;/script&gt;
 
-// Manual control:
+// modal.js auto-wires .openModal-* buttons
+// and .close-modal buttons. You can also
+// control modals manually:
+
 const modal = document.getElementById('my-modal');
+
+// Open &amp; close via the [open] attribute (CSS-driven):
 modal.setAttribute('open', '');    // open
 modal.removeAttribute('open');     // close
 
-// Callbacks via attributes:
-// action-open-callback="onOpen()"
-// action-close-callback="onClose()"</code></pre>
+// Or use the JS methods added by modal.js:
+modal.open();   // open
+modal.close();  // close
+
+// Callbacks (use function name, no parentheses):
+// &lt;div class="modal"
+//   action-open-callback="onModalOpen"
+//   action-close-callback="onModalClose"&gt;</code></pre>
         </div>
       </div>
     </div>
@@ -631,20 +721,20 @@ modal.removeAttribute('open');     // close
     <div class="preview-box">
       <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
       <div class="preview-content stack" style="padding:0;">
-        <div class="code-tabs" style="margin:0;">
-          <div class="tab-bar">
-            <button class="tab-btn active" data-tab="dtab1">Tab 1</button>
-            <button class="tab-btn" data-tab="dtab2">Tab 2</button>
-            <button class="tab-btn" data-tab="dtab3">Tab 3</button>
+        <div>
+          <div class="tabs">
+            <button class="tablinks active" onclick="openTab(event, 'dtab1')">Tab 1</button>
+            <button class="tablinks" onclick="openTab(event, 'dtab2')">Tab 2</button>
+            <button class="tablinks" onclick="openTab(event, 'dtab3')">Tab 3</button>
           </div>
-          <div id="dtab1" class="tab-panel active" style="padding:16px;border:3px solid var(--border-color);border-top:none;">
-            Content for Tab 1.
+          <div id="dtab1" class="tabcontent" style="display:block;">
+            <p>Content for Tab 1.</p>
           </div>
-          <div id="dtab2" class="tab-panel" style="padding:16px;border:3px solid var(--border-color);border-top:none;">
-            Content for Tab 2.
+          <div id="dtab2" class="tabcontent">
+            <p>Content for Tab 2.</p>
           </div>
-          <div id="dtab3" class="tab-panel" style="padding:16px;border:3px solid var(--border-color);border-top:none;">
-            Content for Tab 3.
+          <div id="dtab3" class="tabcontent">
+            <p>Content for Tab 3.</p>
           </div>
         </div>
       </div>
@@ -678,14 +768,12 @@ modal.removeAttribute('open');     // close
       <div id="tabs-js" class="tab-panel">
         <div class="code-box">
           <div class="code-header"><span>JS</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
-          <pre><code class="lang-js">// Include tabs.js:
+          <pre><code class="lang-js">// Include tabs.js — provides openTab() automatically:
 // &lt;script src="tags/tabs.js"&gt;&lt;/script&gt;
 
-function openTab(evt, tabName) {
-  // Hides all .tabcontent
-  // Removes .active from .tablinks
-  // Shows target tab
-}</code></pre>
+// openTab() is already defined by tabs.js.
+// Just use onclick="openTab(event, 'tabId')"
+// on each .tablinks button.</code></pre>
         </div>
       </div>
     </div>
@@ -780,19 +868,16 @@ function openTab(evt, tabName) {
       <pre><code class="lang-html">&lt;!-- Container --&gt;
 &lt;div class="container"&gt;...&lt;/div&gt;
 
-&lt;!-- Spacing --&gt;
-&lt;div class="margin-top"&gt;...&lt;/div&gt;
-&lt;div class="margin-bt"&gt;...&lt;/div&gt;
-&lt;div class="padding-lr"&gt;...&lt;/div&gt;
-
 &lt;!-- Flex --&gt;
-&lt;div class="flex justify-center align-center"&gt;...&lt;/div&gt;
-&lt;div class="flex justify-space-between"&gt;...&lt;/div&gt;
+&lt;div class="flex justify-space-between"&gt;
+  &lt;label&gt;Left&lt;/label&gt;
+  &lt;label&gt;Right&lt;/label&gt;
+&lt;/div&gt;
 
 &lt;!-- Typography --&gt;
 &lt;span class="font-bold"&gt;Bold&lt;/span&gt;
 &lt;span class="font-italic"&gt;Italic&lt;/span&gt;
-&lt;div class="text-center"&gt;Centered&lt;/div&gt;</code></pre>
+&lt;span class="font-normal"&gt;Normal&lt;/span&gt;</code></pre>
     </div>
   </section>
 
@@ -824,8 +909,11 @@ function openTab(evt, tabName) {
   <button class="color-toggle"><i data-lucide="palette"></i></button>
 </div>
 
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-<script src="./tags/datetime.js"></script>
-<script src="docs.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="tags/modal.js"></script>
+  <script src="tags/tabs.js"></script>
+  <script src="tags/select.js"></script>
+  <script src="./tags/datetime.js"></script>
+  <script src="docs.js"></script>
 </body>
 </html>

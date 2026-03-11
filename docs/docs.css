@@ -246,6 +246,20 @@
   z-index: 40;
 }
 
+.preview-box.allow-overflow:hover,
+.pg-box.allow-overflow:hover,
+.preview-box.allow-overflow:focus-within,
+.pg-box.allow-overflow:focus-within {
+  z-index: 100;
+}
+
+.preview-box.allow-overflow:has(nb-datetime[open]),
+.pg-box.allow-overflow:has(nb-datetime[open]),
+.preview-box.allow-overflow:has(.dropdown:hover),
+.pg-box.allow-overflow:has(.dropdown:hover) {
+  z-index: 200;
+}
+
 .preview-box.allow-overflow .preview-content,
 .pg-box.allow-overflow .pg-result {
   overflow: visible;
@@ -278,6 +292,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  width: fit-content;
   cursor: pointer;
   color: var(--border-color) !important;
   font-size: 11px;
@@ -430,10 +445,18 @@
 }
 
 .pg-controls .ctrl-check input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--primary-color);
+  width: 18px;
+  height: 18px;
+  box-shadow: 2px 2px 0 var(--border-color);
   cursor: pointer;
+}
+
+.pg-controls .ctrl-check input[type="checkbox"]:checked::after {
+  top: 0px;
+  left: 4px;
+  width: 5px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
 }
 
 .pg-result {

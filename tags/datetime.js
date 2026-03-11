@@ -246,9 +246,9 @@
             <div class="nb-datetime-weekdays"></div>
             <div class="nb-datetime-grid"></div>
             <div class="nb-datetime-time">
-              <select class="nb-datetime-hour" aria-label="Hour">${this.renderOptions(24, 1)}</select>
+              <nb-select class="nb-datetime-hour" aria-label="Hour">${this.renderOptions(24, 1)}</nb-select>
               <span class="nb-datetime-time-divider">:</span>
-              <select class="nb-datetime-minute" aria-label="Minute">${this.renderOptions(60, this.minuteStep)}</select>
+              <nb-select class="nb-datetime-minute" aria-label="Minute">${this.renderOptions(60, this.minuteStep)}</nb-select>
             </div>
             <div class="nb-datetime-actions">
               <button class="nb-datetime-action" type="button" data-action="clear"></button>
@@ -350,8 +350,17 @@
         this.timePanel.classList.remove('nb-datetime-hidden');
       }
 
-      if (this.minuteSelect.children.length !== Math.ceil(60 / this.minuteStep)) {
-        this.minuteSelect.innerHTML = this.renderOptions(60, this.minuteStep);
+      var expectedMinuteCount = Math.ceil(60 / this.minuteStep);
+      var currentMinuteCount = this.minuteSelect.tagName.toLowerCase() === 'nb-select' && this.minuteSelect.options 
+        ? this.minuteSelect.options.length 
+        : this.minuteSelect.querySelectorAll('option').length;
+      
+      if (currentMinuteCount !== expectedMinuteCount) {
+        if (typeof this.minuteSelect.setOptions === 'function') {
+          this.minuteSelect.setOptions(this.renderOptions(60, this.minuteStep));
+        } else {
+          this.minuteSelect.innerHTML = this.renderOptions(60, this.minuteStep);
+        }
       }
 
       this.clearButton.textContent = this.labels.clear;
@@ -414,8 +423,22 @@
       var hourValue = pad(base.getHours());
       var minuteValue = pad(base.getMinutes());
 
-      if (!this.minuteSelect.querySelector('option[value="' + minuteValue + '"]')) {
-        this.minuteSelect.innerHTML += '<option value="' + minuteValue + '">' + minuteValue + '</option>';
+      var hasMinute = false;
+      if (this.minuteSelect.tagName.toLowerCase() === 'nb-select' && this.minuteSelect.options) {
+        hasMinute = !!this.minuteSelect.options.find(function(o) { return o.value === minuteValue; });
+      } else {
+        hasMinute = !!this.minuteSelect.querySelector('option[value="' + minuteValue + '"]');
+      }
+
+      if (!hasMinute) {
+        if (typeof this.minuteSelect.setOptions === 'function') {
+          this.minuteSelect.options.push({ value: minuteValue, label: minuteValue });
+          this.minuteSelect.options.sort(function(a, b) { return parseInt(a.value, 10) - parseInt(b.value, 10); });
+          this.minuteSelect.renderList();
+          this.minuteSelect.updateDisplay();
+        } else {
+          this.minuteSelect.innerHTML += '<option value="' + minuteValue + '">' + minuteValue + '</option>';
+        }
       }
 
       this.hourSelect.value = hourValue;

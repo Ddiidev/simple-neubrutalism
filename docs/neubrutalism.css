@@ -5,6 +5,8 @@
 @import url('./tags/link.css');
 @import url('./tags/tabs.css');
 @import url('./tags/input.css');
+@import url('./tags/checkbox.css');
+@import url('./tags/select.css');
 @import url('./tags/datetime.css');
 @import url('./tags/table.css');
 @import url('./tags/label.css');

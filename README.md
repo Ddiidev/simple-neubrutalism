@@ -82,15 +82,15 @@ npm install @mangarosa/simple-neubrutalism
 CDN via jsDelivr:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.2/dist/neubrutalism.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@latest/dist/neubrutalism.all.min.js"></script>
 ```
 
 CDN modular:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.2/dist/neubrutalism.min.css">
-<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.2/dist/tags/select.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.2/dist/tags/datetime.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@latest/dist/neubrutalism.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@latest/dist/tags/select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@latest/dist/tags/datetime.min.js"></script>
 ```
 
 ## Customização

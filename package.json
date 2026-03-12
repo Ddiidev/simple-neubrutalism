@@ -31,7 +31,8 @@
   "scripts": {
     "build": "node scripts/build-dist.mjs",
     "prepublishOnly": "npm run build",
-    "sync:docs": "powershell -ExecutionPolicy Bypass -File scripts/sync-pages-assets.ps1"
+    "sync:docs": "node scripts/sync-pages-assets.mjs",
+    "build:pages": "npm run build && npm run sync:docs"
   },
   "publishConfig": {
     "access": "public"

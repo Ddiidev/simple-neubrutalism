@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Neubrutalism - Docs</title>
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+  <link rel="apple-touch-icon" href="./assets/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./neubrutalism.css">
   <link rel="stylesheet" href="docs.css">
@@ -75,6 +77,13 @@
 
 <!-- MAIN -->
 <main class="docs-main">
+  <section class="docs-section" style="padding-top:0;">
+    <div class="preview-box" style="max-width:320px;margin:0 auto 24px;">
+      <div class="preview-content stack" style="padding:24px;align-items:center;">
+        <img nbtl src="./assets/logo.png" alt="Simple Neubrutalism logo" width="220" height="220">
+      </div>
+    </div>
+  </section>
 
   <!-- ========== GETTING STARTED ========== -->
   <section id="getting-started" class="docs-section">
@@ -84,16 +93,12 @@
     <div class="info-box">
       <h3><i data-lucide="download"></i> Installation</h3>
       <div class="code-box">
-        <div class="code-header"><span>HTML</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
-        <pre><code class="lang-html">&lt;!-- Single-tag loader --&gt;
-&lt;script src="neubrutalism.js"&gt;&lt;/script&gt;
-
-&lt;!-- Optional modular setup --&gt;
-&lt;link rel="stylesheet" href="neubrutalism.css"&gt;
-&lt;script src="tags/modal.js"&gt;&lt;/script&gt;
-&lt;script src="tags/tabs.js"&gt;&lt;/script&gt;
-&lt;script src="tags/select.js"&gt;&lt;/script&gt;
-&lt;script src="tags/datetime.js"&gt;&lt;/script&gt;</code></pre>
+        <div class="code-header"><span>Node.js / npm</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+        <pre><code class="lang-bash">npm install @mangarosa/simple-neubrutalism</code></pre>
+      </div>
+      <div class="code-box" style="margin-top:12px;">
+        <div class="code-header"><span>CDN</span><button class="copy-btn"><i data-lucide="clipboard"></i> Copy</button></div>
+        <pre><code class="lang-html">&lt;script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.2/dist/neubrutalism.all.min.js"&gt;&lt;/script&gt;</code></pre>
       </div>
     </div>
 
@@ -400,7 +405,7 @@ btn.addEventListener('click', () => {
     <div class="preview-box">
       <div class="preview-header"><i data-lucide="eye"></i> Preview</div>
       <div class="preview-content">
-        <img nbtl src="https://picsum.photos/seed/nbtl/200/150" alt="Example" width="200" height="150">
+        <img nbtl src="/docs/assets/logo.png" alt="Example"height="150">
       </div>
     </div>
 

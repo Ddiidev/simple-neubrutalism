@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   publish:
-    if: github.actor != 'github-actions[bot]' && github.ref == 'refs/heads/main'
+    if: ${{ github.actor != 'github-actions[bot]' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
 
     permissions:
@@ -44,7 +44,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Bump package version
-        run: npm version patch -m "chore: release v%s"
+        run: 'npm version patch -m "chore: release v%s"'
 
       - name: Push release commit and tag
         run: git push origin HEAD:main --follow-tags

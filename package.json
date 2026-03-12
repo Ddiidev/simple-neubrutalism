@@ -1,9 +1,17 @@
 {
   "name": "@mangarosa/simple-neubrutalism",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple neubrutalism CSS and JS library",
   "private": false,
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ddiidev/simple-neubrutalism.git"
+  },
+  "homepage": "https://github.com/Ddiidev/simple-neubrutalism#readme",
+  "bugs": {
+    "url": "https://github.com/Ddiidev/simple-neubrutalism/issues"
+  },
   "main": "dist/neubrutalism.js",
   "style": "dist/neubrutalism.css",
   "jsdelivr": "dist/neubrutalism.all.min.js",

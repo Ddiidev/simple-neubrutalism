@@ -79,15 +79,15 @@ npm run build
 CDN full-all via jsDelivr depois de publicar no npm:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.1/dist/neubrutalism.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.2/dist/neubrutalism.all.min.js"></script>
 ```
 
 CDN modular:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.1/dist/neubrutalism.min.css">
-<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.1/dist/tags/select.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.1/dist/tags/datetime.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.2/dist/neubrutalism.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.2/dist/tags/select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mangarosa/simple-neubrutalism@1.0.2/dist/tags/datetime.min.js"></script>
 ```
 
 ## Publicação automática
@@ -123,10 +123,10 @@ Exemplo:
 
 ```bash
 git add package.json package-lock.json
-git commit -m "release: v1.0.1"
-git tag v1.0.1
+git commit -m "release: v1.0.2"
+git tag v1.0.2
 git push origin main
-git push origin v1.0.1
+git push origin v1.0.2
 ```
 
 Observação: o workflow agora falha se a tag `vX.Y.Z` não bater com o campo `version` do `package.json`.
